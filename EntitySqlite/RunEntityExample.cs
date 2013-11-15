@@ -23,6 +23,22 @@ namespace EntitySqlite
                 }
             }
 
+            // ### Add a db record
+            using (var context = new ChinookContext())
+            {
+                context.Artists.Add(
+                    new Artist
+                    {
+                        Name = "Anberlin",
+                        Albums =
+                        {
+                            new Album { Title = "Cities" },
+                            new Album { Title = "New Surrender" }
+                        }
+                    });
+                context.SaveChanges();
+            }
+
             Console.ReadKey();
         }
     }
